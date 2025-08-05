@@ -26,12 +26,7 @@ APP_HOME="`pwd -P`"
 cd "$SAVED" >/dev/null
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
-
-# For Cygwin or MSYS, switch paths to Windows format before running java
-if [ "x`uname -s`" = "xCYGWIN_NT-5.1" -o "x`uname -s`" = "xCYGWIN_NT-6.0" -o "x`uname -s`" = "xCYGWIN_NT-6.1" -o "x`uname -s`" = "xCYGWIN_NT-6.2" -o "x`uname -s`" = "xCYGWIN_NT-6.3" -o "x`uname -s`" = "xCYGWIN_NT-5.1(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.0(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.1(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.2(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.3(XXX)" -o "x`uname -s`" = "xMSYS_NT-5.1" -o "x`uname -s`" = "xMSYS_NT-6.0" -o "x`uname -s`" = "xMSYS_NT-6.1" -o "x`uname -s`" = "xMSYS_NT-6.2" -o "x`uname -s`" = "xMSYS_NT-6.3" ] ; then
-    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
-fi
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
@@ -61,34 +56,5 @@ fi
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
-# Escape application args
-for arg in "$@" ; do
-    # if we have a arg that starts with a dash, we need to escape it
-    if [ `echo "$arg" | grep -c "^-"` -gt 0 ] ; then
-        # check if the arg contains a space
-        if [ `echo "$arg" | grep -c " "` -gt 0 ] ; then
-            # escape the arg
-            arg="\"$arg\""
-        fi
-    fi
-    # add the arg to the APP_ARGS array
-    APP_ARGS="$APP_ARGS $arg"
-done
-
-# add the classpath
-APP_ARGS="-classpath \"$CLASSPATH\" $APP_ARGS"
-
-# add the main class name
-APP_ARGS="org.gradle.wrapper.GradleWrapperMain $APP_ARGS"
-
-# add the default JVM options
-APP_ARGS="$DEFAULT_JVM_OPTS $APP_ARGS"
-
-# add the JAVA_OPTS
-APP_ARGS="$JAVA_OPTS $APP_ARGS"
-
-# add the GRADLE_OPTS
-APP_ARGS="$GRADLE_OPTS $APP_ARGS"
-
-# execute the java command
-exec "$JAVACMD" $APP_ARGS
+# Execute the Gradle wrapper with proper JVM options and classpath
+exec "$JAVACMD" $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
