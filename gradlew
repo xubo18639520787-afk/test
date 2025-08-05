@@ -26,7 +26,7 @@ APP_HOME="`pwd -P`"
 cd "$SAVED" >/dev/null
 
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
+DEFAULT_JVM_OPTS="-Xmx64m -Xms64m"
 
 # For Cygwin or MSYS, switch paths to Windows format before running java
 if [ "x`uname -s`" = "xCYGWIN_NT-5.1" -o "x`uname -s`" = "xCYGWIN_NT-6.0" -o "x`uname -s`" = "xCYGWIN_NT-6.1" -o "x`uname -s`" = "xCYGWIN_NT-6.2" -o "x`uname -s`" = "xCYGWIN_NT-6.3" -o "x`uname -s`" = "xCYGWIN_NT-5.1(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.0(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.1(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.2(XXX)" -o "x`uname -s`" = "xCYGWIN_NT-6.3(XXX)" -o "x`uname -s`" = "xMSYS_NT-5.1" -o "x`uname -s`" = "xMSYS_NT-6.0" -o "x`uname -s`" = "xMSYS_NT-6.1" -o "x`uname -s`" = "xMSYS_NT-6.2" -o "x`uname -s`" = "xMSYS_NT-6.3" ] ; then
